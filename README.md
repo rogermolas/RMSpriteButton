@@ -5,11 +5,7 @@
 [![Version](https://img.shields.io/cocoapods/v/RMSpriteButton.svg?style=flat)](http://cocoapods.org/pods/RMSpriteButton)
 
 UIButton like control for SpriteKit, it is use background image for state selected and and highlighted.
-
-## Example
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
+
 ## Installation
 
 RMSpriteButton is available through [CocoaPods](http://cocoapods.org). To install
@@ -25,7 +21,7 @@ let button = RMSpriteButton(title: "My Title", backgroundColor: UIColor.blueColo
     button.addTarget(self, selector:Selector("call:"), object:self)
     button.position = CGPoint(x:CGRectGetWidth(self.frame) / 2, y:CGRectGetHeight(self.frame) / 2);
     self.addChild(button)
-```
+```
 
 ## Using background image
 ```swift

@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RMSpriteButton'
-  s.version          = '1.0'
+  s.version          = '1.2'
   s.summary          = 'UIButton like control for SpriteKit'
 
   s.homepage         = 'https://github.com/rogermolas/RMSpriteButton'
