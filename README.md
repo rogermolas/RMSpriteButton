@@ -2,11 +2,7 @@
 [![Build Status](https://travis-ci.org/rogermolas/RMSpriteButton.svg?branch=master)](https://travis-ci.org/rogermolas/RMSpriteButton)
 ![Status](https://img.shields.io/badge/status-active-brightgreen.svg?style=flat) [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://github.com/rogermolas/RMSpriteButton/blob/master/LICENSE)
 [![Contact](https://img.shields.io/badge/contact-@roger_molas-yellowgreen.svg?style=flat)](https://twitter.com/roger_molas)
-
-[![CI Status](http://img.shields.io/travis/rogermolas/RMSpriteButton.svg?style=flat)](https://travis-ci.org/rogermolas/RMSpriteButton)
 [![Version](https://img.shields.io/cocoapods/v/RMSpriteButton.svg?style=flat)](http://cocoapods.org/pods/RMSpriteButton)
-[![License](https://img.shields.io/cocoapods/l/RMSpriteButton.svg?style=flat)](http://cocoapods.org/pods/RMSpriteButton)
-[![Platform](https://img.shields.io/cocoapods/p/RMSpriteButton.svg?style=flat)](http://cocoapods.org/pods/RMSpriteButton)
 
 UIButton like control for SpriteKit, it is use background image for state selected and and highlighted.
 

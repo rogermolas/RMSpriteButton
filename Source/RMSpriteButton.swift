@@ -25,14 +25,13 @@
 
 import Foundation
 import SpriteKit
+fileprivate let TOUCH_MARGIN: CGFloat        = 10.0
+fileprivate let TOUCH_UP_SCALE: CGFloat      = 1.25
+fileprivate let TOUCH_DOWN_SCALE: CGFloat    = 0.8
+fileprivate let ANIMATION_DURATION: CGFloat  = 0.2
 
-private let TOUCH_MARGIN: CGFloat        = 10.0
-private let TOUCH_UP_SCALE: CGFloat      = 1.25
-private let TOUCH_DOWN_SCALE: CGFloat    = 0.8
-private let ANIMATION_DURATION: CGFloat  = 0.2
-
-class RMSpriteButton: SKSpriteNode {
-    var exclusiveTouch: Bool = true
+open class RMSpriteButton: SKSpriteNode {
+    open var exclusiveTouch: Bool = true
     fileprivate var selectedImgeName: String?
     fileprivate var highlightedImgeName: String?
     
@@ -42,7 +41,7 @@ class RMSpriteButton: SKSpriteNode {
     fileprivate var selector: Selector?
     fileprivate var object_param: AnyObject?
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -60,7 +59,7 @@ class RMSpriteButton: SKSpriteNode {
         self.name = NSStringFromClass(object_getClass(self))
         self.isUserInteractionEnabled = true
     }
-
+    
     //MARK: Initialize with texture image
     public init(image:NSString) {
         let texture = SKTexture(imageNamed:image as String)
@@ -71,20 +70,20 @@ class RMSpriteButton: SKSpriteNode {
     }
     
     //MARK: Properties
-    func setImage(_ selected:String, highlighted:String) {
+    open func setImage(_ selected:String, highlighted:String) {
         self.selectedImgeName = selected
         self.highlightedImgeName = highlighted
     }
     
     //MARK: Target and Selectors
-    func addTarget(_ target:AnyObject, selector:Selector, object:AnyObject?) {
+    open func addTarget(_ target:AnyObject, selector:Selector, object:AnyObject?) {
         self.target = target
         self.selector = selector
         self.object_param = object
     }
-   
+    
     //MARK: UIResponder
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard (self.exclusiveTouch) else {
             return
         }
@@ -96,8 +95,8 @@ class RMSpriteButton: SKSpriteNode {
         self.selection = touches.first;
         self.RM_animateWithImage(self.highlightedImgeName, scale:TOUCH_DOWN_SCALE)
     }
-
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    
+    override open func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard self.exclusiveTouch else {
             return
         }
@@ -115,16 +114,16 @@ class RMSpriteButton: SKSpriteNode {
         let lenY = self.size.height / 2
         
         guard((touchPoint.x > lenX + TOUCH_MARGIN)
-             || (touchPoint.x < (-lenX - TOUCH_MARGIN))
-             || (touchPoint.y > lenY + TOUCH_MARGIN)
-             || (touchPoint.y < (-lenY - TOUCH_MARGIN))) else {
+            || (touchPoint.x < (-lenX - TOUCH_MARGIN))
+            || (touchPoint.y > lenY + TOUCH_MARGIN)
+            || (touchPoint.y < (-lenY - TOUCH_MARGIN))) else {
                 return
         }
         
         self.touchesCancelled(touches, with: nil)
     }
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard selection != nil else {
             return
         }
@@ -142,7 +141,7 @@ class RMSpriteButton: SKSpriteNode {
         _ = self.target?.perform(selector!, with: object_param)
     }
     
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override open func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard selection != nil else {
             return
         }
@@ -156,15 +155,13 @@ class RMSpriteButton: SKSpriteNode {
     }
     
     //MARK: Private Method
-   final func RM_animateWithImage(_ imageNamed:String!, scale:CGFloat) {
+    private func RM_animateWithImage(_ imageNamed:String!, scale:CGFloat) {
+        guard (imageNamed == nil) else {
+            let texture = SKTexture(imageNamed: imageNamed)
+            self.texture = texture
+            return
+        }
+        self.run(SKAction.scale(by: scale, duration: 0.2))
+    }
     
-    guard (imageNamed == nil) else {
-        let texture = SKTexture(imageNamed: imageNamed)
-        self.texture = texture
-        return
-      }
-    self.run(SKAction.scale(by: scale, duration: 0.2))
-   }
-            
 }
-
