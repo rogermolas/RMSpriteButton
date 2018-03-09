@@ -5,7 +5,7 @@
 [![Version](https://img.shields.io/cocoapods/v/RMSpriteButton.svg?style=flat)](http://cocoapods.org/pods/RMSpriteButton)
 
 UIButton like control for SpriteKit, it is use background image for state selected and and highlighted.
-
+
 ## Installation
 
 RMSpriteButton is available through [CocoaPods](http://cocoapods.org). To install
@@ -13,6 +13,11 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 pod "RMSpriteButton"
+```
+
+Run the following command in your Terminal
+```bash
+$ pod install
 ```
 
 ```swift
