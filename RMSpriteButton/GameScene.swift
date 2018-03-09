@@ -12,7 +12,7 @@ import GameplayKit
 class GameScene: SKScene {
 
     override func didMove(to view: SKView) {
-        let button = RMSpriteButton(image: "test_button")
+        let button = RMSpriteButton(image: "button")
         button.size = CGSize(width: 200, height: 100)
         button.addTarget(self, selector:#selector(GameScene.call(_:)), object:self)
         button.position = CGPoint(x:self.frame.width / 2, y:self.frame.height / 2);
@@ -21,7 +21,7 @@ class GameScene: SKScene {
         let button2 = RMSpriteButton(title: "Demo", backgroundColor: UIColor.blue)
         button2.size = CGSize(width: 200, height: 100)
         button2.addTarget(self, selector:#selector(GameScene.call(_:)), object:self)
-        button2.position = CGPoint(x:self.frame.width / 2, y:button.frame.origin.y + 150);
+        button2.position = CGPoint(x:self.frame.width / 2, y:button.frame.origin.y + 200);
         self.addChild(button2)
     }
     
