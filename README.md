@@ -20,15 +20,16 @@ Run the following command in your Terminal
 $ pod install
 ```
 
+### Using background color
 ```swift
 let button = RMSpriteButton(title: "My Title", backgroundColor: UIColor.blueColor())
     button.size = CGSizeMake(200, 100)
     button.addTarget(self, selector:Selector("call:"), object:self)
     button.position = CGPoint(x:CGRectGetWidth(self.frame) / 2, y:CGRectGetHeight(self.frame) / 2);
     self.addChild(button)
-```
+```
 
-## Using background image
+### Using background image
 ```swift
 let button = RMSpriteButton(image: "test_button")
     button.size = CGSizeMake(200, 100)
