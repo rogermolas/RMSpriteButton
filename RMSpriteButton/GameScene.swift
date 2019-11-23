@@ -25,7 +25,7 @@ class GameScene: SKScene {
         self.addChild(button2)
     }
     
-    func call(_ sender:AnyObject?) {
+	@objc func call(_ sender:AnyObject?) {
         print("Calling function \(sender!)")
     }
     

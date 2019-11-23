@@ -56,7 +56,7 @@ open class RMSpriteButton: SKSpriteNode {
         titleLabel.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
         self.addChild(titleLabel);
         
-        self.name = NSStringFromClass(object_getClass(self))
+		self.name = NSStringFromClass(object_getClass(self)!)
         self.isUserInteractionEnabled = true
     }
     
@@ -65,7 +65,7 @@ open class RMSpriteButton: SKSpriteNode {
         let texture = SKTexture(imageNamed:image as String)
         super.init(texture: texture, color: UIColor.clear, size: texture.size())
         
-        self.name = NSStringFromClass(object_getClass(self))
+		self.name = NSStringFromClass(object_getClass(self)!)
         self.isUserInteractionEnabled = true
     }
     
